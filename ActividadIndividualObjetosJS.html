@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*var arrayMuchasDimensiones = [1, ["hola", "que", "tal", ["estas", "estamos", "estoy"], ["bien", "mal"], "acabo"], 2, 5];
+        var p1=["Maria","Joé","marxismo"]
+        var p2=["Maria","Joooé","marx"]
+        var p3=["Jose Maria","Joé","marx"]
+        var edificio1=[p1,p2,p3];
+        console.log (edificio1[2][0]);
+        alert (edificio1[0][2]);
+        document.write("En el Edificio 1 planta 2 puerta 3 vive: "+edificio1[1][2]);*/
+
+        //autor: Jesus Cortazar Romera
+
+function addFloorsandDoors(floorNum,doors){
+    this.floors=this.floors+floorNum;
+    this.doors=this.doors+doors;
+    
+
+    for(var i = 1; i<=floorNum; i++)
+    {
+        // bucle puertas por planta
+        for(var p = 1; p<=doors; p++)
+        {
+            document.write('<br>* Agregando Plantas y puertas: nombre: - planta: ' + i + ' - puerta: '+p);
+            
+        }
+    }
+
+    
+}
+
+function replacenumber(number){
+    this.number=number;
+}
+
+function replacestreet(street){
+    this.street=street;
+}
+
+function replacePc(postcode){
+    this.postcode=postcode;
+}
+
+function addOwner(name,floor,door){
+
+    this.data.push({"name":name,
+    "floor":floor,
+    "door":door});
+    document.write('<br>' + name + ' es ahora el propietario de la puerta ' +  floor + ' de la planta ' + door);
+}
+
+function printFloors(){
+    document.write("<br>Listado de propietarios del edificio "+ this.printStreet +" número " + this.printNumber);
+			
+			for(var i = 0; i<this.data.length; i++)
+			{
+				if(this.data[i][name]==''){
+                    document.write('<br> - Propietario de la puerta ' +  this.data[i]['door'] + ' de la planta ' + this.data[i]['floor'] + ': VACIO');
+                }else{
+                document.write('<br> - Propietario de la puerta ' +  this.data[i]['door'] + ' de la planta ' + this.data[i]['floor'] + ': '+ this.data[i]['name']);
+                }
+			}
+}
+
+
+function Building (street,number,postcode) {
+    //properties
+    this.street=street;
+    this.number=number;
+    this.postcode=postcode;
+    this.floors;
+    //methods:
+    this.addFloorsandDoors=addFloorsandDoors;
+    this.replacenumber=replacenumber;
+    this.replacestreet=replacestreet;
+    this.replacePc=replacePc;
+    this.printStreet=street;
+    this.printNumber=number;
+    this.printPc=postcode;
+    this.addOwner=addOwner;
+    this.printFloors=printFloors;
+    this.data= new Array();
+    
+
+    document.write('<br>Construido nuevo edificio en calle: ' + this.street + ', nº: ' + this.number + ', CP: ' + this.postcode);    
+  }
+var buildingA = new Building('Garcia Prieto','58','15706');
+var buildingB = new Building('Camino Caneiro','29','32004');
+var buildingC = new Building('San Clemente','s/n','15705');
+
+document.write('<br><br>El código postal del edificio A es: '+ buildingA.printPc);
+document.write('<br>La calle del edificio C es: '+ buildingC.printStreet);
+document.write('<br>El edificio B está situado en la calle '+ buildingB.printPc + ' número ' + buildingB.printNumber);
+document.write('<br>');
+buildingA.addFloorsandDoors("2","3");
+document.write('<br>');
+buildingA.addOwner('Jose Antonio Lopez','1','1');
+buildingA.addOwner('Luisa Martinez','1','2');
+buildingA.addOwner('Marta Castellón','1','3');
+buildingA.addOwner('Antonio Pereira','2','2');
+console.log(buildingA.data.length);
+document.write('<br>');
+buildingA.printFloors();
+document.write('<br>');
+document.write('<br>');
+document.write('<br>');
+buildingA.addFloorsandDoors("1","3");
+document.write('<br>');
+buildingA.addOwner('Xabi Ortiz','3','1');
+document.write('<br>');
+console.log(buildingA.data.length);
+buildingA.printFloors();
+
+    </script>
+</body>
+</html>
+
+
+
